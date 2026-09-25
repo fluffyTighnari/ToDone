@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ToDone — 记录你真正完成的事</title>
+  <meta name="description" content="ToDone 是一款温柔的生产力工具。不追待办清单，只记录你真正完成的事。时间线、反思、洞察，把每一天都过得有迹可循。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Geist+Mono:wght@300;400&family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Ccircle cx='24' cy='24' r='20' fill='%230c7e8c'/%3E%3Cpath d='M14 25l7 7 14-16' stroke='white' stroke-width='3.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <span class="nav-logo-mark">
+          <svg viewBox="0 0 48 48" width="28" height="28" aria-hidden="true">
+            <circle cx="24" cy="24" r="20" fill="currentColor" />
+            <path d="M14 25l7 7 14-16" stroke="white" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </span>
+        <span class="nav-logo-text">ToDone</span>
+      </a>
+      <div class="nav-links">
+        <a href="#features" class="nav-link">功能</a>
+        <a href="#timeline" class="nav-link">时间线</a>
+        <a href="#reflection" class="nav-link">反思</a>
+        <a href="#download" class="nav-link nav-link-cta">
+          <span>下载</span>
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-label reveal">
+        <span class="hero-label-dot"></span>
+        版本 0.1 · 一个温柔的开始
+      </div>
+      <h1 class="hero-title">
+        <span class="reveal reveal-delay-1">记录你</span>
+        <span class="reveal reveal-delay-2"><em>真正</em>完成的事</span>
+      </h1>
+      <p class="hero-subtitle reveal reveal-delay-3">
+        ToDone 不是又一个待办清单。<br />
+        它是一面镜子——照见你每天把时间花在了哪里。
+      </p>
+      <div class="hero-actions reveal reveal-delay-4">
+        <a href="#download" class="btn btn-primary">
+          <span>免费下载</span>
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        </a>
+        <a href="#features" class="btn btn-ghost">
+          <span>了解更多</span>
+        </a>
+      </div>
+      <div class="hero-meta reveal reveal-delay-5">
+        <span class="hero-meta-item">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          本地存储 · 数据是你的
+        </span>
+        <span class="hero-meta-item">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          开源 · Tauri 构建
+        </span>
+      </div>
+    </div>
+
+    <!-- Hero visual: animated timeline -->
+    <div class="hero-visual reveal reveal-delay-3">
+      <div class="hero-visual-card">
+        <div class="hero-visual-header">
+          <div class="hero-visual-dots">
+            <span></span><span></span><span></span>
+          </div>
+          <span class="hero-visual-date">今天 · 9月25日 周五</span>
+          <span class="hero-visual-greeting">下午好 ☀️</span>
+        </div>
+        <div class="hero-timeline">
+          <div class="hero-timeline-axis">
+            <span>08</span><span>10</span><span>12</span><span>14</span><span>16</span><span>18</span><span>20</span>
+          </div>
+          <div class="hero-timeline-track">
+            <div class="ht-slot ht-work" style="left: 8%; width: 14%; top: 15%;">
+              <span class="ht-slot-title">晨间深度工作</span>
+              <span class="ht-slot-time">08:30 – 09:50</span>
+            </div>
+            <div class="ht-slot ht-rest" style="left: 22%; width: 8%; top: 30%;">
+              <span class="ht-slot-title">☕ 休息</span>
+            </div>
+            <div class="ht-slot ht-work" style="left: 30%; width: 18%; top: 20%;">
+              <span class="ht-slot-title">产品原型评审</span>
+              <span class="ht-slot-time">10:30 – 12:00</span>
+            </div>
+            <div class="ht-slot ht-waste" style="left: 48%; width: 10%; top: 35%;">
+              <span class="ht-slot-title">🍱 午饭 & 刷手机</span>
+            </div>
+            <div class="ht-slot ht-work" style="left: 58%; width: 12%; top: 18%;">
+              <span class="ht-slot-title">写文档</span>
+            </div>
+            <div class="ht-slot ht-rest" style="left: 70%; width: 6%; top: 40%;">
+              <span class="ht-slot-title">🧘 冥想</span>
+            </div>
+            <div class="ht-slot ht-work" style="left: 76%; width: 16%; top: 22%;">
+              <span class="ht-slot-title">代码评审</span>
+              <span class="ht-slot-time">17:00 – 18:30</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual-stats">
+          <div class="hvs-item">
+            <span class="hvs-value" data-count="4">0</span>
+            <span class="hvs-label">完成事项</span>
+          </div>
+          <div class="hvs-divider"></div>
+          <div class="hvs-item">
+            <span class="hvs-value hvs-teal" data-count="4">0</span>
+            <span class="hvs-label">小时专注</span>
+          </div>
+          <div class="hvs-divider"></div>
+          <div class="hvs-item">
+            <span class="hvs-value hvs-pink" data-count="2">0</span>
+            <span class="hvs-label">休息时段</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual-glow" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="section" id="features">
+    <div class="section-inner">
+      <div class="section-head reveal">
+        <span class="section-eyebrow">为什么是 ToDone</span>
+        <h2 class="section-title">
+          从「要做什么」<br />
+          转向<em>「做了什么」</em>
+        </h2>
+        <p class="section-desc">
+          待办清单让你永远觉得不够。ToDone 换了个方向——<br />
+          把你已经完成的事变得可见，让时间有了形状。
+        </p>
+      </div>
+
+      <div class="feature-grid">
+        <article class="feature-card reveal">
+          <div class="feature-icon feature-icon-teal">
+            <svg viewBox="0 0 48 48" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 36l8-20 8 12 6-9 6 17"/>
+              <circle cx="10" cy="36" r="2.5" fill="currentColor"/>
+              <circle cx="18" cy="16" r="2.5" fill="currentColor"/>
+              <circle cx="26" cy="28" r="2.5" fill="currentColor"/>
+              <circle cx="32" cy="19" r="2.5" fill="currentColor"/>
+              <circle cx="38" cy="36" r="2.5" fill="currentColor"/>
+            </svg>
+          </div>
+          <h3 class="feature-title">时间线视图</h3>
+          <p class="feature-desc">
+            一天的专注、休息与虚度，在一条时间线上一目了然。拖拽调整，点击编辑，像摆弄真实的日程积木。
+          </p>
+        </article>
+
+        <article class="feature-card reveal reveal-delay-1">
+          <div class="feature-icon feature-icon-pink">
+            <svg viewBox="0 0 48 48" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M24 6c-6 4-12 9-12 18c0 8 6 14 12 18c6-4 12-10 12-18c0-9-6-14-12-18z"/>
+              <path d="M24 24v12"/>
+              <circle cx="24" cy="18" r="2" fill="currentColor"/>
+            </svg>
+          </div>
+          <h3 class="feature-title">每日反思</h3>
+          <p class="feature-desc">
+            临睡前写三句话——今天哪里做得好？哪里可以更好？明天最想完成的一件事？坚持三周，你会遇见不一样的自己。
+          </p>
+        </article>
+
+        <article class="feature-card reveal reveal-delay-2">
+          <div class="feature-icon feature-icon-peach">
+            <svg viewBox="0 0 48 48" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="24" cy="24" r="16"/>
+              <path d="M24 12v12l8 4"/>
+              <path d="M14 10l-2-4M34 10l2-4M14 38l-2 4M34 38l2 4M10 14l-4-2M10 34l-4 2M38 14l4-2M38 34l4 2"/>
+            </svg>
+          </div>
+          <h3 class="feature-title">洞察与趋势</h3>
+          <p class="feature-desc">
+            每周、每月、每年的数据画像。你的高效时段是几点？哪个标签占比最高？用数据认识自己。
+          </p>
+        </article>
+
+        <article class="feature-card reveal reveal-delay-3">
+          <div class="feature-icon feature-icon-sage">
+            <svg viewBox="0 0 48 48" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 24h28"/>
+              <path d="M16 16h16M20 32h8"/>
+              <circle cx="24" cy="24" r="16"/>
+              <path d="M8 24h-4M44 24h-4"/>
+            </svg>
+          </div>
+          <h3 class="feature-title">标签系统</h3>
+          <p class="feature-desc">
+            工作、学习、生活、创作……用标签分类你的每一件完成。想看这周读了几本书？点一下标签就知道。
+          </p>
+        </article>
+
+        <article class="feature-card reveal">
+          <div class="feature-icon feature-icon-amber">
+            <svg viewBox="0 0 48 48" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="10" y="6" width="28" height="36" rx="2"/>
+              <path d="M16 2v6M32 2v6M10 14h28"/>
+              <circle cx="24" cy="26" r="5"/>
+              <path d="M24 21v5l3 2"/>
+            </svg>
+          </div>
+          <h3 class="feature-title">番茄专注</h3>
+          <p class="feature-desc">
+            内置计时器。25 分钟专注，5 分钟休息。开始、暂停、结束——每一次专注都被温柔记录。
+          </p>
+        </article>
+
+        <article class="feature-card reveal reveal-delay-1">
+          <div class="feature-icon feature-icon-violet">
+            <svg viewBox="0 0 48 48" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M24 6c-3 3-6 6-6 12s3 12 6 18c3-6 6-12 6-18s-3-9-6-12z"/>
+              <path d="M14 22c-4 6-6 10-6 14c0 6 7 8 16 8s16-2 16-8c0-4-2-8-6-14"/>
+              <circle cx="24" cy="18" r="2.5" fill="currentColor"/>
+            </svg>
+          </div>
+          <h3 class="feature-title">数据在本地</h3>
+          <p class="feature-desc">
+            所有记录存在你自己的设备上。SQLite 数据库，随时可导出、可备份。隐私是底线，不是选项。
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline feature detail -->
+  <section class="section section-alt" id="timeline">
+    <div class="section-inner two-col">
+      <div class="two-col-text reveal">
+        <span class="section-eyebrow">时间线</span>
+        <h2 class="section-title">
+          你的一天，<br />
+          <em>看得见形状</em>
+        </h2>
+        <p class="section-desc">
+          专注工作、小憩放松、摸鱼放空——它们都值得被看见。<br /><br />
+          ToDone 的时间线不评判，只记录。颜色区分类型，长度代表时长。<br />
+          你会慢慢发现：原来那些"什么都没干"的日子，其实也做了不少事。
+        </p>
+        <div class="timeline-legend">
+          <div class="legend-item">
+            <span class="legend-dot legend-work"></span>
+            <span>专注 · Work</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-dot legend-rest"></span>
+            <span>休息 · Rest</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-dot legend-waste"></span>
+            <span>虚度 · Waste</span>
+          </div>
+        </div>
+      </div>
+      <div class="two-col-visual reveal reveal-delay-2">
+        <div class="timeline-visual">
+          <div class="tv-day">
+            <div class="tv-day-label">周一</div>
+            <div class="tv-track"><div class="tv-bar tv-work" style="width: 45%"></div><div class="tv-bar tv-rest" style="width: 15%"></div><div class="tv-bar tv-waste" style="width: 10%"></div></div>
+            <div class="tv-hours">5.6h 专注</div>
+          </div>
+          <div class="tv-day">
+            <div class="tv-day-label">周二</div>
+            <div class="tv-track"><div class="tv-bar tv-work" style="width: 60%"></div><div class="tv-bar tv-rest" style="width: 12%"></div><div class="tv-bar tv-waste" style="width: 8%"></div></div>
+            <div class="tv-hours">7.2h 专注</div>
+          </div>
+          <div class="tv-day tv-today">
+            <div class="tv-day-label">今天</div>
+            <div class="tv-track"><div class="tv-bar tv-work" style="width: 38%"></div><div class="tv-bar tv-rest" style="width: 20%"></div><div class="tv-bar tv-waste" style="width: 15%"></div></div>
+            <div class="tv-hours">4.5h 专注</div>
+          </div>
+          <div class="tv-day">
+            <div class="tv-day-label">周四</div>
+            <div class="tv-track"><div class="tv-bar tv-placeholder" style="width: 100%"></div></div>
+            <div class="tv-hours tv-muted">——</div>
+          </div>
+          <div class="tv-day">
+            <div class="tv-day-label">周五</div>
+            <div class="tv-track"><div class="tv-bar tv-placeholder" style="width: 100%"></div></div>
+            <div class="tv-hours tv-muted">——</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reflection feature detail -->
+  <section class="section" id="reflection">
+    <div class="section-inner two-col two-col-reverse">
+      <div class="two-col-visual reveal">
+        <div class="reflection-visual">
+          <div class="rv-quote-mark">"</div>
+          <div class="rv-text">
+            今天完成了拖延一周的原型评审。<br />
+            才发现真正花的时间，比想象中短得多。<br />
+            <br />
+            <em>—— 9月23日 · 每日反思</em>
+          </div>
+          <div class="rv-meta">
+            <span>⭐ 高难度 × 1</span>
+            <span>🏷 设计</span>
+            <span>⏱ 4.2h 专注</span>
+          </div>
+        </div>
+      </div>
+      <div class="two-col-text reveal reveal-delay-2">
+        <span class="section-eyebrow">每日反思</span>
+        <h2 class="section-title">
+          睡前三分钟，<br />
+          <em>和自己说说话</em>
+        </h2>
+        <p class="section-desc">
+          没有长文大论的压力。三个问题，几句话就够。<br /><br />
+          做得好的、可以改进的、明天最期待的——<br />
+          当你开始书写，答案会自己浮现。
+        </p>
+        <ul class="reflection-list">
+          <li>
+            <span class="rl-num">01</span>
+            <span class="rl-text">今天有什么做得不错的？</span>
+          </li>
+          <li>
+            <span class="rl-num">02</span>
+            <span class="rl-text">哪里可以做得更好？</span>
+          </li>
+          <li>
+            <span class="rl-num">03</span>
+            <span class="rl-text">明天最想完成的一件事？</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quote / divider -->
+  <section class="section section-quote">
+    <div class="section-inner">
+      <blockquote class="big-quote reveal">
+        <p>
+          <em>「完成」</em>比「完美」更重要。<br />
+          但首先，你得<em>看见</em>自己完成了什么。
+        </p>
+        <footer>— ToDone 的设计初衷</footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Download -->
+  <section class="section section-download" id="download">
+    <div class="section-inner">
+      <div class="section-head reveal">
+        <span class="section-eyebrow">下载</span>
+        <h2 class="section-title">
+          开始记录<br />
+          <em>你的每一个完成</em>
+        </h2>
+        <p class="section-desc">
+          目前版本 0.1，免费使用。支持 Windows 与 Android。
+        </p>
+      </div>
+
+      <div class="download-grid">
+        <a href="packages/ToDone_0.1.0_x64-setup.exe" class="dl-card reveal" data-platform="windows">
+          <div class="dl-icon">
+            <svg viewBox="0 0 48 48" width="36" height="36" fill="currentColor">
+              <path d="M8 10l14-2v18H8V10zM24 8l16-3v22H24V8zM8 22h14v16l-14-2V22zM24 22h16v18l-16-3V22z"/>
+            </svg>
+          </div>
+          <div class="dl-info">
+            <div class="dl-platform">Windows</div>
+            <div class="dl-version">x64 · Setup EXE · 3.2 MB</div>
+          </div>
+          <div class="dl-arrow">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </div>
+        </a>
+
+        <a href="packages/ToDone_0.1.0_x64_en-US.msi" class="dl-card reveal reveal-delay-1" data-platform="windows">
+          <div class="dl-icon">
+            <svg viewBox="0 0 48 48" width="36" height="36" fill="currentColor">
+              <path d="M8 10l14-2v18H8V10zM24 8l16-3v22H24V8zM8 22h14v16l-14-2V22zM24 22h16v18l-16-3V22z"/>
+            </svg>
+          </div>
+          <div class="dl-info">
+            <div class="dl-platform">Windows (MSI)</div>
+            <div class="dl-version">x64 · 企业部署 · 4.5 MB</div>
+          </div>
+          <div class="dl-arrow">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </div>
+        </a>
+
+        <a href="packages/ToDone_0.1.0_arm64-setup.apk" class="dl-card reveal reveal-delay-2" data-platform="android">
+          <div class="dl-icon dl-icon-android">
+            <svg viewBox="0 0 48 48" width="36" height="36" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="10" y="18" width="28" height="22" rx="6"/>
+              <path d="M16 18V12M32 18V12"/>
+              <circle cx="16" cy="8" r="2" fill="currentColor"/>
+              <circle cx="32" cy="8" r="2" fill="currentColor"/>
+              <path d="M8 22h-4M44 22h-4M12 40v6M36 40v6"/>
+              <circle cx="18" cy="28" r="1.5" fill="currentColor"/>
+              <circle cx="30" cy="28" r="1.5" fill="currentColor"/>
+            </svg>
+          </div>
+          <div class="dl-info">
+            <div class="dl-platform">Android</div>
+            <div class="dl-version">ARM64 · APK · 15.5 MB</div>
+          </div>
+          <div class="dl-arrow">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </div>
+        </a>
+      </div>
+
+      <p class="download-note reveal reveal-delay-3">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:2px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>Windows 安装包可能触发 SmartScreen 警告——这是因为没有购买代码签名证书。点击「更多信息 → 仍要运行」即可。项目完全开源，可自行编译验证。</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="nav-logo">
+          <span class="nav-logo-mark">
+            <svg viewBox="0 0 48 48" width="24" height="24" aria-hidden="true">
+              <circle cx="24" cy="24" r="20" fill="currentColor" />
+              <path d="M14 25l7 7 14-16" stroke="white" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+          <span class="nav-logo-text">ToDone</span>
+        </div>
+        <p class="footer-tagline">记录你真正完成的事。</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>产品</h4>
+          <a href="#features">功能</a>
+          <a href="#download">下载</a>
+          <a href="#timeline">时间线</a>
+        </div>
+        <div class="footer-col">
+          <h4>资源</h4>
+          <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>
+          <a href="#">更新日志</a>
+          <a href="#">使用手册</a>
+        </div>
+        <div class="footer-col">
+          <h4>关于</h4>
+          <a href="#">隐私</a>
+          <a href="#">联系</a>
+          <a href="#">反馈</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 ToDone. 用 ♥ 做给每一个认真生活的人。</span>
+      <span class="footer-mono">v0.1.0</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
